@@ -53,3 +53,21 @@ function findMissing2(arr){
     return (max*(max+1)/2) - sum;
 }
 
+//Question: find biggest contiguous sub array
+function biggestSubArr(arr){
+    var max = Number.MIN_SAFE_INTEGER, sum = 0;
+    var test = [], found = [];
+    for(const n of arr){
+        sum += n;
+        test.push(n);
+        if(max < sum ){
+            max = sum;
+            found = test.slice(0);//clone existing test values to found
+        }
+        if(sum < 0){
+            sum = 0;
+            test = [];
+        }
+    }
+    return found;
+}
