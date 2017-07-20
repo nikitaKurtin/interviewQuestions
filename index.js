@@ -71,3 +71,13 @@ function biggestSubArr(arr){
     }
     return found;
 }
+
+//Questions count all digits in a number
+function countDigits(num){
+    num = ""+num;//stringify the number
+    const digits = [0,0,0,0,0,0,0,0,0,0];
+    for(let i=0, count=num.length; i<count; i++){
+       digits[num[i]*1]++;
+    }
+    return digits;
+}
