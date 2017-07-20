@@ -1,4 +1,4 @@
-//get fibonacci number by index
+//Question: Get fibonacci number by index:
 
 //Solution 1 - recursion
 function fib1(i){
@@ -18,3 +18,38 @@ function fib2(i){
     }
     return n2;
 }
+
+//Question: Print fibonacci calling: printFib(n1, n2)
+
+//Solution 1 - Descending order
+function printFib1(n1, n2){
+    console.log(n1);
+    if(n1 > 0)printFib(n2-n1, n1);
+}
+//Solution 2 - Ascending order
+function printFib2(n1, n2){
+    if(n1 > 0)printFib(n2-n1, n1);
+    console.log(n1);
+}
+
+//Question: Find missing number in array with values between 1...n
+
+//Solution 1 - Assume only one number is missing and Max value is known for example: 100
+function findMissing1(arr){
+    var sum = 0;
+    for(const n of arr){
+        sum += n;
+    }
+    return (100*(100+1)/2) - sum;
+}
+
+//Solution 2 - Assume only one number is missing and Max value is unknown
+function findMissing2(arr){
+    var sum = 0, max = 0;
+    for(const n of arr){
+        sum += n;
+        if(n > max) max = n;
+    }
+    return (max*(max+1)/2) - sum;
+}
+
