@@ -73,11 +73,20 @@ function biggestSubArr(arr){
 }
 
 //Questions count all digits in a number
-function countDigits(num){
+function countDigits1(num){
     num = ""+num;//stringify the number
     const digits = [0,0,0,0,0,0,0,0,0,0];
     for(let i=0, count=num.length; i<count; i++){
        digits[num[i]*1]++;
+    }
+    return digits;
+}
+
+function countDigits2(num){
+    const digits = [0,0,0,0,0,0,0,0,0,0];
+    for(let d; num > 0 && 0 <= (d = num%10); ){
+        digits[d]++;
+        num = parseInt(num / 10);
     }
     return digits;
 }
