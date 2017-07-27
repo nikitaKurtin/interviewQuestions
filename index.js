@@ -53,6 +53,10 @@ function findMissing2(arr){
     return (max*(max+1)/2) - sum;
 }
 
+//Solution 3 - Assume 2 numbers are missing and Max value is unknown
+
+//Solution 4 - Assume unknown amount of numbers are missing and Max value is unknown
+
 //Question: find biggest contiguous sub array
 function biggestSubArr(arr){
     var max = Number.MIN_SAFE_INTEGER, sum = 0;
