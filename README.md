@@ -25,10 +25,10 @@ Interview questions &amp; Answers
 
 #Answers:
 
--[X] [Answers with Javascript](https://github.com/nikitaKurtin/interviewQuestions/blob/master/index.js)
+- [X] [Answers with Javascript](https://github.com/nikitaKurtin/interviewQuestions/blob/master/index.js)
 
--[ ] [Answers with Swift]()
+- [ ] [Answers with Swift]()
 
--[ ] [Answers with Java]()
+- [ ] [Answers with Java]()
 
--[ ] [Answers with PHP]()
+- [ ] [Answers with PHP]()
