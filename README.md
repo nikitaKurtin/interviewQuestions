@@ -22,6 +22,8 @@
     2. Using additional memory O(n).
     3. Without additional memory O(n).
 
+5. Shuffle an array.
+
 
 ## Answers:
 

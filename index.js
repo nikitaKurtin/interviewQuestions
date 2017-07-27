@@ -110,3 +110,15 @@ function countDigits2(num){
     }
     return digits;
 }
+
+//Question: Shuffle an array
+function shuffle(arr){
+    var shuffle = arr.slice(0);
+    for(let i=shuffle.length-1; i >= 0; i--){
+        const r = Math.floor(Math.random() * i);
+        const t = shuffle[r];
+        shuffle[r] = shuffle[i];
+        shuffle[i] = t;
+    }
+    return shuffle;
+}
