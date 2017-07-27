@@ -32,7 +32,7 @@ function printFib2(n1, n2){
     console.log(n1);
 }
 
-//Question: Find missing number in array with values between 1...n
+//Question: Find missing number in array with values between 1...n (unordered)
 
 //Solution 1 - Assume only one number is missing and Max value is known for example: 100
 function findMissing1(arr){
@@ -60,15 +60,35 @@ function findMissing3(arr){
         sum += n;
         if(n > max) max = n;
     }
-    misSum = (max*(max+1)/2) - sum;//sum of two missing numbers
-    for(let n = Math.ceil(misSum/2); n>1; n--){
+    misSum = (max*(max+1)/2) - sum;//Sum of two missing numbers
+    for(let n = Math.min(misSum, max-1); n > 1; n--){
         if(arr.indexOf(n) < 0)misNums = [n, misSum-n];
     }
     return misNums;
 }
 
 //Solution 4 - Assume unknown amount of numbers are missing and Max value is unknown
-//TODO
+function findMissing4(arr){
+    var sum = 0, count = 0, max = 0, misSum, misNums=[];
+    for(const n of arr){
+        count++;
+        sum += n;
+        if(n > max) max = n;
+    }
+    misSum = (max*(max+1)/2) - sum;//Sum of all missing numbers
+    count = max - count;//How many numbers are missing
+    for(let n = Math.min(misSum, max-1); n > 1; n--){
+        if(arr.indexOf(n) < 0){
+            misNums.push(n);
+            misSum -= n;
+            if(--count == 1){//only one left
+                misNums.push(misSum);
+                break;
+            }
+        }
+    }
+    return misNums;
+}
 
 //Question: find biggest contiguous sub array
 function biggestSubArr(arr){
@@ -87,6 +107,18 @@ function biggestSubArr(arr){
         }
     }
     return found;
+}
+
+//Question: Shuffle an array
+function shuffle(arr){
+    var shuffle = arr.slice(0);
+    for(let i=shuffle.length-1; i >= 0; i--){
+        const r = Math.floor(Math.random() * i);
+        const t = shuffle[r];
+        shuffle[r] = shuffle[i];
+        shuffle[i] = t;
+    }
+    return shuffle;
 }
 
 //Question: count all digits in a number
@@ -111,14 +143,24 @@ function countDigits2(num){
     return digits;
 }
 
-//Question: Shuffle an array
-function shuffle(arr){
-    var shuffle = arr.slice(0);
-    for(let i=shuffle.length-1; i >= 0; i--){
-        const r = Math.floor(Math.random() * i);
-        const t = shuffle[r];
-        shuffle[r] = shuffle[i];
-        shuffle[i] = t;
+//Question: Find duplicated int in array with values between 0...n (unordered). Cannot use additional memory.
+
+//Solution 1 - Using sorting O(n^2).
+function findDup1(arr){
+    arr.sort();//Bottle neck of this solution
+    for(let i=arr.length-1; i>=0; i--){
+        const t = arr[i];
+        if(t == arr[i-1])return t;
     }
-    return shuffle;
+}
+
+//Solution 2 - Without sorting O(n).
+function findDup2(arr){
+    for(const n of arr){
+        const t = n<0 ? n*-1 : n;//if negative turn to positive
+        arr[t] *= -1;
+    }
+    for(const n of arr){
+        if(n > 0)return n;
+    }
 }
