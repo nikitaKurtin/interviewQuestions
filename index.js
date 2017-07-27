@@ -72,7 +72,9 @@ function biggestSubArr(arr){
     return found;
 }
 
-//Questions count all digits in a number
+//Question: count all digits in a number
+
+//Solution 1 - dynamic type conversion String -> Number -> String
 function countDigits1(num){
     num = ""+num;//stringify the number
     const digits = [0,0,0,0,0,0,0,0,0,0];
@@ -82,6 +84,7 @@ function countDigits1(num){
     return digits;
 }
 
+//Solution 2 - without type conversion
 function countDigits2(num){
     const digits = [0,0,0,0,0,0,0,0,0,0];
     for(let d; num > 0 && 0 <= (d = num%10); ){
