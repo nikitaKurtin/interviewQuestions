@@ -54,8 +54,10 @@ function findMissing2(arr){
 }
 
 //Solution 3 - Assume 2 numbers are missing and Max value is unknown
+//TODO
 
 //Solution 4 - Assume unknown amount of numbers are missing and Max value is unknown
+//TODO
 
 //Question: find biggest contiguous sub array
 function biggestSubArr(arr){
