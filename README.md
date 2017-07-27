@@ -1,7 +1,7 @@
-# interviewQuestions
-Interview questions &amp; Answers
 
-## Questions
+# Interview questions &amp; Answers
+
+## Questions:
 
 1. Get fibonacci number by index.
     1. With recursion.
