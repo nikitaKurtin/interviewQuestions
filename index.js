@@ -54,7 +54,18 @@ function findMissing2(arr){
 }
 
 //Solution 3 - Assume 2 numbers are missing and Max value is unknown
-//TODO
+function findMissing3(arr){
+    var sum = 0, max = 0, misSum, misNums;
+    for(const n of arr){
+        sum += n;
+        if(n > max) max = n;
+    }
+    misSum = (max*(max+1)/2) - sum;//sum of two missing numbers
+    for(let n = Math.ceil(misSum/2); n>1; n--){
+        if(arr.indexOf(n) < 0)misNums = [n, misSum-n];
+    }
+    return misNums;
+}
 
 //Solution 4 - Assume unknown amount of numbers are missing and Max value is unknown
 //TODO
