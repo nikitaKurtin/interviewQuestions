@@ -36,7 +36,7 @@
 
 - [X] [Answers with Javascript](https://github.com/nikitaKurtin/interviewQuestions/blob/master/index.js)
 
-- [ ] Answers with Swift
+- [ ] [Answers with Swift](https://github.com/nikitaKurtin/interviewQuestions/blob/master/swiftAnswers.swift)
 
 - [ ] Answers with Java
 
