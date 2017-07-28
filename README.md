@@ -32,7 +32,7 @@
 
 
 
-## Answers:
+## Answer examples:
 
 - [X] [Answers with Javascript](https://github.com/nikitaKurtin/interviewQuestions/blob/master/index.js)
 
