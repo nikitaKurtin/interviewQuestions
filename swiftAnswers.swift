@@ -42,7 +42,14 @@ public func printFib2(n1:Int, n2:Int){
 //Question: Find missing number in array with values between 1...n (unordered)
 
 //Solution 1 - Assume only one number is missing and Max value is known for example: 100
-//TODO
+//Solution 1 - Assume only one number is missing and Max value is known for example: 100
+func findMissing1(arr : [Int])->Int{
+    var sum = 0;
+    for n in arr{
+        sum += n;
+    }
+    return (100*(100+1)/2) - sum;
+}
 
 //Solution 2 - Assume only one number is missing and Max value is unknown
 //TODO
