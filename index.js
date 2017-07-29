@@ -90,6 +90,26 @@ function findMissing4(arr){
     return misNums;
 }
 
+//Solution 5 - Assume unknown amount of numbers are missing and Max value is unknown (using second array)
+function findMissing5(arr){
+    var count=0, max = 0, neededNums=[], misNums=[];
+    for(const n of arr){
+        count++;
+        neededNums.push(0);//zero for every needed number
+        if(n > max) max = n;
+    }
+    for(let i = (max - count); i>0; i--){
+        neededNums.push(0);//complete zeros for missing numbers
+    }
+    for(const n of arr){//iterate again
+        neededNums[n == max ? 0 : n]++;//add one - used as index in second array (convert max to zero)
+    }
+    for(let i=neededNums.length; i>0; i--){
+        if(neededNums[i]<1)misNums.push(i);//if value is zero, than index is a missing number
+    }
+    return misNums;
+}
+
 //Question: find biggest contiguous sub array
 function biggestSubArr(arr){
     var max = Number.MIN_SAFE_INTEGER, sum = 0;

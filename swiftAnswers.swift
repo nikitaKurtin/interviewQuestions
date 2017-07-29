@@ -105,6 +105,28 @@ public func findMissing4(arr : [Int])->[Int]{
     return misNums;
 }
 
+//Solution 5 - Assume unknown amount of numbers are missing and Max value is unknown (using second array)
+public func findMissing5(arr : [Int])->[Int]{
+    var count=0, max = 0;
+    var neededNums:[Int] = [];
+    var misNums:[Int] = [];
+    for n in arr{
+        count += 1;
+        neededNums.append(0);//zero for every needed number
+        if(n > max){ max = n;}
+    }
+    for _ in count..<max{
+        neededNums.append(0);//complete zeros for missing numbers
+    }
+    for n in arr{//iterate again
+        neededNums[n == max ? 0 : n] += 1;//add one - used as index in second array (convert max to zero)
+    }
+    for i in 1..<neededNums.count{
+        if(neededNums[i]<1){misNums.append(i);}//if value is zero, than index is a missing number
+    }
+    return misNums;
+}
+
 //Question: find biggest contiguous sub array
 public func biggestSubArr(_ arr: [Int]) ->[Int]{
     var max=Int.min, sum=0;

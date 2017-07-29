@@ -16,6 +16,7 @@
     2. Only one number is missing and Max value is unknown.
     3. Two numbers are missing and Max value is unknown.
     4. Unknown amount of missing numbers and Max value is unknown.
+    5. Unknown amount of missing numbers and Max value is unknown (using second array).
 
 4. Find biggest contiguous sub array.
 
