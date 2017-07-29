@@ -52,17 +52,62 @@ func findMissing1(arr : [Int])->Int{
 }
 
 //Solution 2 - Assume only one number is missing and Max value is unknown
-//TODO
+func findMissing2(arr : [Int]) -> Int{
+    var sum = 0, max = 0;
+    for  n in arr{
+        sum += n;
+        if(n > max){max = n;}
+    }
+    return (max*(max+1)/2) - sum;
+}
 
 //Solution 3 - Assume 2 numbers are missing and Max value is unknown
-//TODO
+func findMissing3(arr : [Int]) -> [Int]{
+    var sum = 0, max = 0, misSum=0;
+    var misNums:[Int]=[];
+    for n in arr{
+        sum += n;
+        if(n > max){max = n;}
+    }
+    misSum = (max*(max+1)/2) - sum;//Sum of two missing numbers
+    var n:Int = (misSum < max-1) ? misSum : max-1;
+    while( n > 1){
+        if(!arr.contains(n)){misNums = [n, misSum-n];}
+        n-=1;
+    }
+    return misNums;
+}
 
 //Solution 4 - Assume unknown amount of numbers are missing and Max value is unknown
-//TODO
+public func findMissing4(arr : [Int])->[Int]{
+    var sum = 0, count = 0, max = 0, misSum=0;
+    var misNums:[Int]=[];
+    for n in arr{
+        count += 1;
+        sum += n;
+        if(n > max){ max = n;}
+    }
+    misSum = (max*(max+1)/2) - sum;//Sum of all missing numbers
+    count = max - count;//How many numbers are missing
+    var n:Int = (misSum < max-1) ? misSum : max-1;
+    while(n > 1){
+        if(!arr.contains(n)){
+            misNums.append(n);
+            misSum -= n;
+            count -= 1;
+            if(count == 1){//only one left
+                misNums.append(misSum);
+                break;
+            }
+        }
+        n -= 1;
+    }
+    return misNums;
+}
 
 //Question: find biggest contiguous sub array
-public func maxSubArr(_ arr: [Int]) ->[Int]{
-    var max=0,sum=0;
+public func biggestSubArr(_ arr: [Int]) ->[Int]{
+    var max=Int.min, sum=0;
     var test:[Int]=[], found:[Int]=[];
     for n in arr{
         sum+=n;
@@ -97,7 +142,7 @@ public func mShuffle (_ nums:[Int]) -> [Int] {
 //Question: count all digits in a number
 
 //Solution 1 - dynamic type conversion String -> Number -> String
-public func countDigits(num:Int){
+public func countDigits1(num:Int){
     let numStr = "\(num)";
     var digits = [Int](repeatElement(0, count: 10));//[0,0,0,0,0,0,0,0,0,0]
     for c in numStr.characters{
@@ -107,15 +152,46 @@ public func countDigits(num:Int){
 }
 
 //Solution 2 - without type conversion
-//TODO
+public func countDigits2(num : Int)->[Int]{
+    var digits = [0,0,0,0,0,0,0,0,0,0];
+    var tNum = num;
+    var d:Int;
+    while(tNum > 0){
+        d = tNum%10;
+        if(0 <= d){
+            digits[d] += 1;
+            tNum = Int(tNum / 10);
+        }
+    }
+    return digits;
+}
 
 //Question: Find duplicated int in array with values between 0...n (unordered). Cannot use additional memory.
 
 //Solution 1 - Using sorting O(n^2).
-//TODO
+public func findDup1(arr : [Int])->Int?{
+  var sArr = arr.sorted();
+  var i = sArr.count-1;
+  while(i >= 0){
+      let t = sArr[i];
+      if(t == sArr[i-1]){return t;}
+      i-=1;
+  }
+  return nil;
+}
 
 //Solution 2 - Without sorting O(n).
-//TODO
+public func findDup2(arr : [Int])->Int?{
+    var tArr = arr;
+    for n in arr{
+        let t = n<0 ? n * -1 : n;//if negative turn to positive
+        tArr[t] *= -1;
+    }
+    for n in tArr{
+        if(n > 0){return n;}
+    }
+    return nil;
+}
 
 
 
