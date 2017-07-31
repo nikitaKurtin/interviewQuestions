@@ -1,4 +1,4 @@
-public class AnswerExamples {
+public class answerExamples {
 
     //Question: Get fibonacci number by index:
 
