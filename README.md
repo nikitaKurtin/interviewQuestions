@@ -39,6 +39,6 @@
 
 - [X] [Answers with Swift](https://github.com/nikitaKurtin/interviewQuestions/blob/master/answerExamples.swift)
 
-- [ ] Answers with Java
+- [X] [Answers with Java](https://github.com/nikitaKurtin/interviewQuestions/blob/master/AnswerExamples.java)
 
 - [ ] Answers with PHP
