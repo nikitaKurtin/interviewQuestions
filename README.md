@@ -30,6 +30,8 @@
     1. Using sorting.
     2. Without sorting.
 
+8. Compress a string using the counts of repeated characters. 
+    1. The string consist only from letters [A-Za-z] (no numbers)
 
 
 
