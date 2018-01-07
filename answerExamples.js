@@ -189,13 +189,13 @@ function findDup2(arr){
 
 //Solution - Assume the string consist only from letters [A-Za-z] (no numbers)
 function compress(str){
-  var compressed = "";
-  for(let i=0, compCount=0; i<str.length; i++){
+  var compressed = "", strLength = str.length;
+  for(let i=0, compCount=0; i<strLength; i++){
      compCount++;
-     if(i+1 >= str.length || str[i+1] != str[i]){
+     if(i+1 >= strLength || str[i+1] != str[i]){
         compressed += str[i]+compCount;
         compCount = 0;
      }
   }
-  return compressed;
+  return compressed.length < strLength ? compressed : str;//if compressed isn't smaller - return original
 }
