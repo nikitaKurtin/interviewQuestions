@@ -198,4 +198,20 @@ public class answerExamples {
         }
         return 0;
     }
+
+    //Question: Compress a string using the counts of repeated characters. 
+
+    //Solution - Assume the string consist only from letters [A-Za-z] (no numbers)
+    public static String compress(String str){
+      StringBuilder compressed = new StringBuilder();
+      int strLength = str.length();
+      for(int i=0, compCount=0; i<strLength; i++){
+         compCount++;
+         if(i+1 >= strLength || str.charAt(i+1) != str.charAt(i)){
+            compressed.append(str.charAt(i)).append(compCount);
+            compCount = 0;
+         }
+      }
+      return compressed.length() < strLength ? compressed.toString() : str;//if not smaller - return the original
+    }
 }
