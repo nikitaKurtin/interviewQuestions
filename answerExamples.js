@@ -184,3 +184,18 @@ function findDup2(arr){
         if(n > 0)return n;
     }
 }
+
+//Question: Compress a string using the counts of repeated characters. 
+
+//Solution - Assume the string consist only from letters [A-Za-z] (no numbers)
+function compress(str){
+  var compressed = "";
+  for(let i=0, compCount=0; i<str.length; i++){
+     compCount++;
+     if(i+1 >= str.length || str[i+1] != str[i]){
+        compressed += str[i]+compCount;
+        compCount = 0;
+     }
+  }
+  return compressed;
+}
