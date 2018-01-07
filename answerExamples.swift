@@ -215,5 +215,18 @@ public func findDup2(arr : [Int])->Int?{
     return nil;
 }
 
+//Question: Compress a string using the counts of repeated characters. 
 
+//Solution - Assume the string consist only from letters [A-Za-z] (no numbers)
+func compress(_ str : String)->String{
+    var compressed = "", compCount = 0;
+    for i in str.indices{
+        compCount += 1;
+        if(str.index(after: i) == str.endIndex || str[str.index(after: i)] != str[i]){
+            compressed += "\(str[i])\(compCount)";
+            compCount = 0;
+        }
+    }
+    return compressed.count < str.count ? compressed : str;//if compressed isn't smaller - return original
+}
 
