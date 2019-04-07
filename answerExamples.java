@@ -66,8 +66,10 @@ public class answerExamples {
         }
         misSum = (max*(max+1)/2) - sum;//Sum of two missing numbers
         for(int n = Math.min(misSum, max-1); n > 1; n--){
-            if(!contains(n, arr))misNums = new int[]{n, misSum-n};
-
+            if(!contains(n, arr)){
+                misNums = new int[]{n, misSum-n};
+                break;   
+            }
         }
         return misNums;
     }
